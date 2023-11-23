@@ -4,32 +4,32 @@ import { Container, Nav, Navbar, NavDropdown, Col, Row } from 'react-bootstrap'
 import logo from '../assets/logo.png'
 import profile from '../assets/profile.jpg'
 
-const Bar = () => {
-  const [style, setStyle] = useState({
-    background: '#050426',
-    height: '100px',
-   });
-
-   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 5) { // Ubah 50 ke tinggi yang sesuai
-        setStyle({
-          background: '#18181b',
-          height: '70px',
-          boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.3)',
-        })
-      } else{
-        setStyle({
-          background: '#050426',
-          height: '100px',
-        })
-      }
-    });
-
-    return () => {
-      window.removeEventListener('scroll', () => {});
-    };
-  }, []);
+const Purchased = () => {
+    const [style, setStyle] = useState({
+        background: '#050426',
+        height: '100px',
+       });
+    
+       useEffect(() => {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 5) { // Ubah 50 ke tinggi yang sesuai
+            setStyle({
+              background: '#18181b',
+              height: '70px',
+              boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.3)',
+            })
+          } else{
+            setStyle({
+              background: '#050426',
+              height: '100px',
+            })
+          }
+        });
+    
+        return () => {
+          window.removeEventListener('scroll', () => {});
+        };
+      }, []);
 
   return (
     <Navbar expand="lg" className="bg" sticky="top" style={style}>
@@ -40,11 +40,11 @@ const Bar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="judul">
-            <Link className='nav-item' to="/">Beranda</Link>
+            <Link className='nav-item' href="/">Beranda</Link>
             <Link className='nav-item' href="/">Create Vote</Link>
             <Link className='nav-item' href="/"> About</Link>
-            <Link className='nav-item' to="/browse">Browse</Link>
-            <Link className='nav-item' to="/purchased">Purchased</Link>
+            <Link className='nav-item' href="/">Browse</Link>
+            <Link className='nav-item' href="/purchased">Purchased</Link>
             <NavDropdown title="More" id="basic-nav-dropdown">
               <NavDropdown.Item href="/votebook">Vote Book</NavDropdown.Item>
               <NavDropdown.Item href="/requestedbook">Requested Book</NavDropdown.Item>
@@ -59,4 +59,4 @@ const Bar = () => {
   )
 }
 
-export default Bar 
+export default Purchased
